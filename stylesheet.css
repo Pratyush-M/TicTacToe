@@ -1,0 +1,42 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div {
+    width: 210px;
+    height: 210px;
+    background-color: gray;
+    margin: auto;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 6px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    
+}
+
+li {
+    color: rgb(36, 33, 33);
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    aspect-ratio: 1;
+    background-color: rgb(255, 255, 255);
+    font-size: 45px;
+    text-align: center;
+}
+
+
+    
+
+

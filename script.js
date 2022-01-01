@@ -9,7 +9,7 @@ return {playerMoves}
 const gameController = (function () {
 
 })
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                            
 
 gameBoard.playerMoves[2] = "abcd"
 console.log(gameBoard.playerMoves)
