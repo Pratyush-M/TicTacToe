@@ -28,7 +28,6 @@ const playerFactory = function (name) {
 
 const playerOne = (function () {
     let listItemArray = [...gameBoard.listItems]
-    console.log(listItemArray)
     let markSpot = function () {listItemArray.forEach((item, index) => item.addEventListener("click", () => {
         if (!gameBoard.playerMoves[index]){
             gameBoard.playerMoves[index] = 'x';
