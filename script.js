@@ -22,10 +22,20 @@ const gameController = (function () {
         if (!gameBoard.playerMoves[index]){
             gameBoard.playerMoves[index] = moveSelector[moveNumber];
             gameBoard.placeMoves(); 
+            console.log(gameBoard.playerMoves)
+            gameStopper()
             moveNumber++
         }
         else {return}
-        }))}
+    }))}
+    let gameStopper = function () {
+        let moves = gameBoard.playerMoves
+        console.log(moves)
+        if(moves[0] == moves[1] && moves[1] == moves[2] && moves[0] ) {
+                console.log(`${moves[0]} is the winner`)
+        }
+    } 
+    
     return markSpot()
 })()
                                             
