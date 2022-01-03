@@ -15,8 +15,19 @@ const displayController = (function () {
 
 
 const gameController = (function () {
-
-})
+    let listItemArray = [...gameBoard.listItems]
+    let moveSelector = ['x', 'o', 'x', 'o' , 'x', 'o', 'x', 'o', 'x']
+    let moveNumber = 0
+    let markSpot = function () {listItemArray.forEach((item, index) => item.addEventListener("click", () => {
+        if (!gameBoard.playerMoves[index]){
+            gameBoard.playerMoves[index] = moveSelector[moveNumber];
+            gameBoard.placeMoves(); 
+            moveNumber++
+        }
+        else {return}
+        }))}
+    return markSpot()
+})()
                                             
 const playerFactory = function (name) {
     let playerInfo = {
@@ -27,13 +38,5 @@ const playerFactory = function (name) {
 }
 
 const playerOne = (function () {
-    let listItemArray = [...gameBoard.listItems]
-    let markSpot = function () {listItemArray.forEach((item, index) => item.addEventListener("click", () => {
-        if (!gameBoard.playerMoves[index]){
-            gameBoard.playerMoves[index] = 'x';
-            gameBoard.placeMoves();
-        }
-        else {return}
-        }))}
-    return markSpot()
+    
 })()
