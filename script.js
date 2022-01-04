@@ -23,22 +23,24 @@ const gameController = (function () {
             gameBoard.playerMoves[index] = moveSelector[moveNumber];
             gameBoard.placeMoves(); 
             console.log(gameBoard.playerMoves)
-            gameStopper()
+            winObj.forEach((item, index) => gameStopper(item) )
             moveNumber++
         }
         else {return}
     }))}
     let gameEnded = false;
-    let gameStopper = function () {
-        let moves = gameBoard.playerMoves
-        console.log(moves)
-        if(moves[0] == moves[1] && moves[1] == moves[2] && moves[0] ) {
-                console.log(`${moves[0]} is the winner`);
-                gameEnded = true;
-
+    let moves = gameBoard.playerMoves
+    
+    let winObj = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+    let gameStopper = function([x,y,z]) {
+        if(moves[x] == moves[y] && moves[x] == moves[z] && moves[x]){
+            console.log(`${moves[x]} is the winner`);
+            gameEnded = true;
+        }
+        else if (!moves.includes(null)){
+            console.log('its a draw')
         }
     } 
-    
     return markSpot()
 })()
                                             
