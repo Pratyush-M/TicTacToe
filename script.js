@@ -19,7 +19,7 @@ const gameController = (function () {
     let moveSelector = ['x', 'o', 'x', 'o' , 'x', 'o', 'x', 'o', 'x']
     let moveNumber = 0
     let markSpot = function () {listItemArray.forEach((item, index) => item.addEventListener("click", () => {
-        if (!gameBoard.playerMoves[index]){
+        if (!gameBoard.playerMoves[index] && gameEnded == false){
             gameBoard.playerMoves[index] = moveSelector[moveNumber];
             gameBoard.placeMoves(); 
             console.log(gameBoard.playerMoves)
@@ -28,11 +28,14 @@ const gameController = (function () {
         }
         else {return}
     }))}
+    let gameEnded = false;
     let gameStopper = function () {
         let moves = gameBoard.playerMoves
         console.log(moves)
         if(moves[0] == moves[1] && moves[1] == moves[2] && moves[0] ) {
-                console.log(`${moves[0]} is the winner`)
+                console.log(`${moves[0]} is the winner`);
+                gameEnded = true;
+
         }
     } 
     
