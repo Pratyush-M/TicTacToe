@@ -22,16 +22,16 @@
         </ul>
     </div>
 
-    <form action="">
+    <form name = "menu" id="form" onsubmit="return false">
         <fieldset>
             <h3>Tic-Tac-Toe</h3>
             Enter Player Names
             <h1></h1>
-            Player (x)  <input>
+            <label for="p1"> Player (x) </label> <input type ='text' id = "p1" name="p1" required>
             <br>
-            Player (o)  <input>
+            <label for="p2"> Player (y) </label>  <input type="text" id="p2" name="p2" required>
             <br>
-            <Button>Play</Button>
+            <Button id="play" >Play</Button>
         </fieldset>
     </form>
 

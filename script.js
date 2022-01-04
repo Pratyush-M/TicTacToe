@@ -9,6 +9,16 @@ return {playerMoves, listItems, placeMoves}
 
 
 const displayController = (function () {
+    let form = document.getElementById("form");
+    let inputs = document.querySelectorAll('input');
+    let inputChecker = () => {
+        if (inputs[0].checkValidity() == true && inputs[1].checkValidity() == true) {
+            form.classList.add('hidden')
+        }
+        
+    }    
+    document.getElementById("play").addEventListener("click", inputChecker)
+        
     
 })()
 
