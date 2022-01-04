@@ -40,6 +40,41 @@ li {
     text-align: center;
 }
 
+fieldset {
+    height: 250px;
+    width: 200px;
+    position: absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgb(32, 202, 151);
+    border: 3px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+fieldset input {
+    border-radius: 6px;
+    border: 2px solid rgb(72, 184, 228);
+    margin: 4px;
+}
+
+fieldset input:focus {
+    outline: none;
+}
+
+fieldset button {
+    border-radius: 6px;
+    background-color: cornsilk;
+    padding: 5px;
+    margin-top: 4px;
+}
+
+.hidden {
+    visibility: hidden;
+}
 
     
 
