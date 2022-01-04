@@ -2,10 +2,14 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+    background-color: #f5b732;
+}
+
 div {
     width: 210px;
     height: 210px;
-    background-color: gray;
+    background-color: rgb(68, 67, 67);
     margin: auto;
     position: absolute;
     top:0;
@@ -31,7 +35,7 @@ li {
     display: inline-block;
     vertical-align: middle;
     aspect-ratio: 1;
-    background-color: rgb(255, 255, 255);
+    background-color: #f5b732;
     font-size: 45px;
     text-align: center;
 }
