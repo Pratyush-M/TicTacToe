@@ -15,15 +15,24 @@ const displayController = (function () {
         if (inputs[0].checkValidity() == true && inputs[1].checkValidity() == true) {
             form.classList.add('hidden')
         }
-        
     }    
     document.getElementById("play").addEventListener("click", inputChecker)
-        
+
+    let printWinner = function(winner) {
+        if (winner == 'x') {
+            document.getElementById('winnerText').textContent = `Player (x) is the winner`
+        }
+        else if (winner == 'o') { 
+            document.getElementById('winnerText').textContent = `Player (o) is the winner`
+        }
+        else if (winner == 'draw') {
+            document.getElementById('winnerText').textContent = `It's a Tie`
+        }
+    }
+    
+    return {printWinner}
     
 })()
-
-
-
 const gameController = (function () {
     let listItemArray = [...gameBoard.listItems]
     let moveSelector = ['x', 'o', 'x', 'o' , 'x', 'o', 'x', 'o', 'x']
@@ -44,15 +53,15 @@ const gameController = (function () {
     let winObj = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     let gameWin = function([x,y,z]) {
         if(moves[x] == moves[y] && moves[x] == moves[z] && moves[x] && gameEnded == false){
-            console.log(`${moves[x]} is the winner`);
+            displayController.printWinner(moves[x]);
             gameEnded = true;
         }
-        
+
     } 
     let drawGame = function () {
         if (!moves.includes(null) && gameEnded == false){
             gameEnded = true;
-            console.log('its a draw')
+            displayController.printWinner('draw');
         }
     }
     return markSpot()
