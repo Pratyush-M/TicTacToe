@@ -7,6 +7,18 @@ return {playerMoves, listItems, placeMoves}
 
 })()
 
+const playerFactory = (function (name) {
+    let playerInfo = {
+    } 
+    let inputs = document.querySelectorAll('input');
+
+    let addPlayers = function () {
+        playerInfo.playerOne = inputs[0].value
+        playerInfo.playerTwo = inputs[1].value
+    }
+    return {playerInfo, addPlayers}
+})()
+
 
 const displayController = (function () {
     let form = document.getElementById("form");
@@ -20,17 +32,20 @@ const displayController = (function () {
 
     let printWinner = function(winner) {
         if (winner == 'x') {
-            document.getElementById('winnerText').textContent = `Player (x) is the winner`
+            document.getElementById('winnerText').textContent = `${playerFactory.playerInfo.playerOne} is the winner!`
         }
         else if (winner == 'o') { 
-            document.getElementById('winnerText').textContent = `Player (o) is the winner`
+            document.getElementById('winnerText').textContent = `${playerFactory.playerInfo.playerTwo} is the winner!`
         }
         else if (winner == 'draw') {
-            document.getElementById('winnerText').textContent = `It's a Tie`
+            document.getElementById('winnerText').textContent = `It's a Tie.`
         }
     }
+
+        document.getElementById('play').addEventListener('click', playerFactory.addPlayers)
     
-    return {printWinner}
+    
+    return {printWinner, inputs}
     
 })()
 const gameController = (function () {
@@ -67,13 +82,6 @@ const gameController = (function () {
     return markSpot()
 })()
                                             
-const playerFactory = function (name) {
-    let playerInfo = {
-        playerOne: "praty",
-        playerTwo: "simba"
-    } 
-    return {playerInfo}
-}
 
 const playerOne = (function () {
     
