@@ -35,6 +35,7 @@ const displayController = (function () {
         document.getElementById('winnerText').textContent = '';
         gameController.gameEnded[0] = false;
         gameController.moveNumber[0] = 0
+        document.getElementById('buttonContainer').classList.add('hideButtons')
     }
 
     let form = document.getElementById("form");
