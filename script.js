@@ -19,7 +19,7 @@ const playerFactory = (function (name) {
         playerInfo.playerOne = inputs[0].value
         playerInfo.playerTwo = inputs[1].value
     }
-    return {playerInfo, addPlayers}
+    return {playerInfo, addPlayers, inputs}
 })()
 
 
@@ -61,7 +61,13 @@ const displayController = (function () {
         document.getElementById('play').addEventListener('click', playerFactory.addPlayers)
 
         let rematch = document.getElementById('rematch').addEventListener('click', resetGame)
-        
+        let newGame = document.getElementById('newGame').addEventListener('click', ()=>{
+            resetGame()
+            document.getElementById('buttonContainer').classList.add('hideButtons')
+            playerFactory.inputs[0].value = ''
+            playerFactory.inputs[1].value = ''
+            form.classList.remove('hidden')
+        })
     
     
     return {printWinner, inputs, rematch,resetGame}
