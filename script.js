@@ -26,6 +26,17 @@ const playerFactory = (function (name) {
 
 
 const displayController = (function () {
+    let resetGame = function() {
+        console.log(gameBoard.playerMoves)
+        for (i=0; i<9; i++) {
+            gameBoard.playerMoves[i] = null;
+        }
+        gameBoard.placeMoves()
+        document.getElementById('winnerText').textContent = '';
+        gameController.gameEnded[0] = false;
+        gameController.moveNumber[0] = 0
+    }
+
     let form = document.getElementById("form");
     let inputs = document.querySelectorAll('input');
     let inputChecker = () => {
@@ -48,9 +59,12 @@ const displayController = (function () {
     }
 
         document.getElementById('play').addEventListener('click', playerFactory.addPlayers)
+
+        let rematch = document.getElementById('rematch').addEventListener('click', resetGame)
+        
     
     
-    return {printWinner, inputs}
+    return {printWinner, inputs, rematch,resetGame}
     
 })()
 
@@ -58,37 +72,43 @@ const displayController = (function () {
 
 
 const gameController = (function () {
+    
     let listItemArray = [...gameBoard.listItems]
     let moveSelector = ['x', 'o', 'x', 'o' , 'x', 'o', 'x', 'o', 'x']
-    let moveNumber = 0
+    let moveNumber = [0]
+    let showButtons = function () {document.getElementById('buttonContainer').classList.remove('hideButtons')}
     let markSpot = function () {listItemArray.forEach((item, index) => item.addEventListener("click", () => {
-        if (!gameBoard.playerMoves[index] && gameEnded == false){
-            gameBoard.playerMoves[index] = moveSelector[moveNumber];
+        if (!gameBoard.playerMoves[index] && gameEnded[0] == false){
+            gameBoard.playerMoves[index] = moveSelector[moveNumber[0]];
             gameBoard.placeMoves(); 
             winObj.forEach((item, index) => gameWin(item) )
             drawGame();
-            moveNumber++
+            moveNumber[0]++
         }
         else {return}
     }))}
-    let gameEnded = false;
+    let gameEnded = [false];
     let moves = gameBoard.playerMoves
     
     let winObj = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
     let gameWin = function([x,y,z]) {
-        if(moves[x] == moves[y] && moves[x] == moves[z] && moves[x] && gameEnded == false){
+        if(moves[x] == moves[y] && moves[x] == moves[z] && moves[x] && gameEnded[0] == false){
             displayController.printWinner(moves[x]);
-            gameEnded = true;
+            gameEnded[0] = true;
+            showButtons();
+
         }
 
     } 
     let drawGame = function () {
-        if (!moves.includes(null) && gameEnded == false){
-            gameEnded = true;
+        if (!moves.includes(null) && gameEnded[0] == false){
+            gameEnded[0] = true;
+            showButtons()
             displayController.printWinner('draw');
         }
     }
-    return markSpot()
+    markSpot()
+    return {markSpot, gameEnded, moveNumber}
 })()
                                             
 

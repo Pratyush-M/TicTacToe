@@ -93,7 +93,16 @@ p {
 .buttonContainer button {
     border-radius: 6px;
     background-color: cornsilk;
-    border: 2px solid rgb(176, 180, 180)
+    border: 2px solid rgb(176, 180, 180);
+    padding: 3px
+}
+
+.buttonContainer button:active {
+    border: 2px solid rgb(88, 117, 117);
+}
+
+.hideButtons {
+    visibility: hidden;
 }
 
 
