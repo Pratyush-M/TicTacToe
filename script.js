@@ -27,7 +27,6 @@ const playerFactory = (function (name) {
 
 const displayController = (function () {
     let resetGame = function() {
-        console.log(gameBoard.playerMoves)
         for (i=0; i<9; i++) {
             gameBoard.playerMoves[i] = null;
         }
