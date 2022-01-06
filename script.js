@@ -7,6 +7,9 @@ return {playerMoves, listItems, placeMoves}
 
 })()
 
+
+
+
 const playerFactory = (function (name) {
     let playerInfo = {
     } 
@@ -18,6 +21,8 @@ const playerFactory = (function (name) {
     }
     return {playerInfo, addPlayers}
 })()
+
+
 
 
 const displayController = (function () {
@@ -48,6 +53,10 @@ const displayController = (function () {
     return {printWinner, inputs}
     
 })()
+
+
+
+
 const gameController = (function () {
     let listItemArray = [...gameBoard.listItems]
     let moveSelector = ['x', 'o', 'x', 'o' , 'x', 'o', 'x', 'o', 'x']
@@ -83,6 +92,3 @@ const gameController = (function () {
 })()
                                             
 
-const playerOne = (function () {
-    
-})()

@@ -6,7 +6,7 @@ body {
     background-color: #f5b732;
 }
 
-div {
+.boardContainer {
     width: 210px;
     height: 210px;
     background-color: rgb(68, 67, 67);
@@ -82,5 +82,18 @@ p {
     margin-top: 44%;
 }
     
+.buttonContainer {
+    display: grid;
+    text-align: center;
+    margin-top: 20%;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.buttonContainer button {
+    border-radius: 6px;
+    background-color: cornsilk;
+    border: 2px solid rgb(176, 180, 180)
+}
 
 
