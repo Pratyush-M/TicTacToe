@@ -58,7 +58,10 @@ const displayController = (function () {
         }
     }
 
-        document.getElementById('play').addEventListener('click', playerFactory.addPlayers)
+        document.getElementById('play').addEventListener('click', ()=>{
+            playerFactory.addPlayers()
+            document.getElementById('winnerText').textContent = `${playerFactory.playerInfo.playerOne}'s move`
+        })
 
         let rematch = document.getElementById('rematch').addEventListener('click', resetGame)
         let newGame = document.getElementById('newGame').addEventListener('click', ()=>{
@@ -86,6 +89,11 @@ const gameController = (function () {
     let markSpot = function () {listItemArray.forEach((item, index) => item.addEventListener("click", () => {
         if (!gameBoard.playerMoves[index] && gameEnded[0] == false){
             gameBoard.playerMoves[index] = moveSelector[moveNumber[0]];
+            if(moveSelector[moveNumber[0]] == 'x'){
+                document.getElementById('winnerText').textContent = `${playerFactory.playerInfo.playerTwo}'s move`
+            }
+
+            else { document.getElementById('winnerText').textContent = `${playerFactory.playerInfo.playerOne}'s move`}
             gameBoard.placeMoves(); 
             winObj.forEach((item, index) => gameWin(item) )
             drawGame();
